@@ -1,49 +1,29 @@
 pipeline {
     agent {
-        docker { 
-            image 'python:3.12'
+        docker {
+            image 'python:3.12' 
             args '-u root:root'
         }
     }
     
-    options {
-        skipDefaultCheckout() // disables automatic checkout
-    }
-
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                // Checkout 'main' branch from GitHub
-                git branch: 'main', url: 'https://github.com/Vedant2000039/Jenkins-Hello-CI.git'
+                git branch: 'main', url: 'https://github.com/your-username/Hello-CI.git'
             }
         }
 
-        stage('Build') {
+        stage('Run Script') {
             steps {
-                echo 'Building the Hello-CI project...'
+                sh 'python Hello.py'
             }
         }
 
-        stage('Test') {
+        stage('Archive Output') {
             steps {
-                echo 'Running hello.py...'
-                sh 'python hello.py' // make sure file name matches
+                sh 'echo "Build finished at $(date)" > build_log.txt'
+                archiveArtifacts artifacts: 'build_log.txt', followSymlinks: false
             }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deployment simulated - Hello CI project complete!'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline finished successfully! 🎉'
-        }
-        failure {
-            echo 'Pipeline failed! ❌ Check logs for errors.'
         }
     }
 }
