@@ -1,9 +1,13 @@
 import unittest
-from Hello import say_hello  # Import the function from Hello.py
+from Hello import greet, sum_numbers
 
 class TestHello(unittest.TestCase):
-    def test_say_hello(self):
-        self.assertEqual(say_hello(), "Hello from Python!")  # Check if the function returns the expected value
+
+    def test_greet(self):
+        self.assertEqual(greet(), "Hello, World!")
+
+    def test_sum_numbers(self):
+        self.assertEqual(sum_numbers(), 30)
 
 if __name__ == "__main__":
-    unittest.main()  # Runs the test
+    unittest.main()
