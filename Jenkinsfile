@@ -55,7 +55,7 @@ pipeline {
                     <br>
                     <p>Regards,<br>Jenkins CI Server</p>
                 """,
-                to: "vedant.yourmail@example.com"
+                to: "vmulherkar@xtsworld.in"
             )
         }
 
