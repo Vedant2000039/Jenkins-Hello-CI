@@ -22,10 +22,11 @@ pipeline {
 
         // 4️⃣ Run Python unit tests
         stage('Run Tests') {
-            steps {
-                sh 'python3 -m unittest test_hello.py'
-            }
-        }
+    steps {
+        sh 'python3 -m unittest discover -s tests -p "*.py"'
+    }
+}
+
 
         // 5️⃣ Run Python script with parameters from Jenkins
         stage('Run Script with Parameters') {
