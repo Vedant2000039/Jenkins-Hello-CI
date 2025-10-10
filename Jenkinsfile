@@ -55,7 +55,7 @@ pipeline {
                     <br>
                     <p>Regards,<br>Jenkins CI Server</p>
                 """,
-                to: "vmulherkar@xtsworld.in"
+                to: "sonarved@gmail.com"
             )
         }
 
@@ -71,7 +71,7 @@ pipeline {
                     <br>
                     <p>Regards,<br>Jenkins CI Server</p>
                 """,
-                to: "vmulherkar@xtsworld.in"
+                to: "sonarved@gmail.com"
             )
         }
     }
